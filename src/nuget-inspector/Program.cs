@@ -114,6 +114,7 @@ internal static class Program
             deps_timer.Stop();
 
             Stopwatch meta_timer = Stopwatch.StartNew();
+            scanner.RemoveInternalProjectDependencies(scan_result: scan_result);
             scanner.FetchDependenciesMetadata(
                 scan_result: scan_result,
                 with_details: options.WithDetails);

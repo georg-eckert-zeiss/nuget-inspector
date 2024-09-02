@@ -190,6 +190,12 @@ namespace NugetInspector
         public List<string> warnings { get; set; } = new();
         public List<string> errors { get; set; } = new();
 
+        /// <summary>
+        /// If this is an internal project and not a third-party component.
+        /// </summary>
+        public bool is_internal_project { get; set; }
+
+
         // Track if we updated this package metadata
         [JsonIgnore]
         public bool has_updated_metadata;

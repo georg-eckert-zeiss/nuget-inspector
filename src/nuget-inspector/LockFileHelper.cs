@@ -72,9 +72,10 @@ public class LockFileHelper
         {
             foreach (var library in target.Libraries)
             {
+                var type = library.Type;
                 var name = library.Name;
                 var version = library.Version.ToNormalizedString();
-                var package = new BasePackage(name: name, version: version);
+                var package = new BasePackage(name: name, version: version) { is_internal_project = type.Equals( "project" )};
                 var dependencies = new List<BasePackage>();
                 foreach (var dependency in library.Dependencies)
                 {
